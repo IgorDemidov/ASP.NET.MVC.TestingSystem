@@ -13,19 +13,13 @@
 </head>
 <body>
     <div>
-        <table>
-            <thead>
-            <tr>
-                <th>Доступные темы:</th>
-            </tr>
-            </thead>
-            <tbody>
+        <h2>Доступные темы (@Model.Count):</h2>
+        <ul>
             @foreach (string s in Model)
             {
-                <tr><td><a href="~/Views/Home/SelectedTheme?themeName=@s">@s</a></td></tr>
-            }  
-            </tbody>
-        </table>
+                <li><a href="~/Views/Home/SelectedTheme?themeName=@s">@s</a></li>
+            }
+        </ul>
     </div>
 </body>
 </html>

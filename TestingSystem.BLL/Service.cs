@@ -16,5 +16,10 @@ namespace TestingSystem.BLL
         {
             return repository.GetThemesList().Select(t => t.Name).ToList();
         }
+
+        public Question GetNextQuestion(Question current)
+        {
+            return repository.GetNextQuestion(current);
+        }
     }
 }
