@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="TestingSytemModel.Theme" Width="1.5" PointX="0.5" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="TestingSytemModel.FK_Answers_Questions" ManuallyRouted="false" />
         <AssociationConnector Association="TestingSytemModel.FK_Questions_Themes" ManuallyRouted="false" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

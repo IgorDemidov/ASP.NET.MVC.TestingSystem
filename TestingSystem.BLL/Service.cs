@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestingSystem.DAL;
+using TestingSystem.WebUI.Models;
 
 
 namespace TestingSystem.BLL
@@ -12,9 +13,9 @@ namespace TestingSystem.BLL
     {
         Repository repository = new Repository();
 
-        public List<string> GetStringThemesList()
+        public List<string> GetThemeNamesList()
         {
-            return repository.GetThemesList().Select(t => t.Name).ToList();
+           return repository.GetThemesList().Select(t => t.Name).ToList();
         }
     }
 }
