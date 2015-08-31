@@ -1,0 +1,22 @@
+﻿@model TestingSystem.BLL.Models.ThemeModel
+
+@{
+    ViewBag.Title = "Информация о тесте";
+}
+<div>
+    
+    <table class="table-info">
+        <caption>@ViewBag.Title</caption>
+        <tr>
+            <th>Тема</th>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <th>Количество вопросов</th>
+            <td>@ViewBag.QuestionCount</td>
+        </tr>
+    </table>
+
+    @Html.ActionLink("Начать тест", "Test", @Model, new {@class = "a-button"})
+    @*<a class="a-button" href="/Home/Test/@Model">Начать тест</a>*@
+</div>

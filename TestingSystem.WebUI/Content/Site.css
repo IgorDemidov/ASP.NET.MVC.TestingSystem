@@ -40,6 +40,43 @@ footer {
     float: right;
 }
 
+.a-button {
+    border: 1px solid black;
+    -ms-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: black;
+    color: white;
+    padding: 3px;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.table-info {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;
+    margin: 10px;
+}
+
+.table-info th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+.table-info th{
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.table-info caption{
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
 
 /*_layout*/
 
@@ -109,3 +146,18 @@ nav ul li a:hover {
 }
 
 
+/*View: themes*/
+
+#ol-themes a {
+    text-decoration: none;
+    color: black;
+}
+
+#ol-themes a:hover {
+    background-color: grey;
+    color: white;
+    border: 1px solid black;
+    -ms-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    padding: 2px;
+}

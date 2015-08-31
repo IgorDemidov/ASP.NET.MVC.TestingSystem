@@ -10,26 +10,47 @@ namespace TestingSystem.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        private Service service = new Service();
+        private TestingService service = new TestingService();
 
         public ActionResult Index()
         {
-            List<ThemeModel> themeModels = service.GetThemeModelList();
-            return View(themeModels);
+            return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
-    }
+
+        public ActionResult Themes()
+        {
+            List<ThemeModel> themeModels = service.GetThemeModelList();
+            return View(themeModels);
+        }
+
+        public ActionResult TestInfo(ThemeModel themeModel)
+        {
+            ViewBag.QuestionCount = service.GetQuestionCount(themeModel);
+            return View(themeModel);
+        }
+
+        [HttpGet]
+        public ActionResult Test(ThemeModel themeModel)
+        {
+            QuestionModel questionModelModel = service.GetFirstQuestionModel(themeModel);
+            return View(questionModelModel);
+        }
+
+        [HttpPost]
+        public ActionResult Test(QuestionModel questionModel)
+        {
+            QuestionModel questionModelModel = service.GetNextQuestionModel(questionModel);
+            return View(questionModelModel);
+        }
+    }      
 }
