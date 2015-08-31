@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestingSystem.BLL;
+using TestingSystem.BLL.Models;
 
 namespace TestingSystem.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        private Service service = new Service();
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            List<ThemeModel> themeModels = service.GetThemeModelList();
+            return View(themeModels);
         }
 
         public ActionResult About()
