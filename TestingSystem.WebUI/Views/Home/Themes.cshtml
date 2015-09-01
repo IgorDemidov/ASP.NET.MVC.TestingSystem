@@ -1,0 +1,17 @@
+﻿@using TestingSystem.BLL.Models
+@model List<ThemeModel>
+
+@{
+    ViewBag.Title = "Доступные темы";
+}
+
+<h3>Доступные темы:</h3>
+<ol id="ol-themes">
+    @foreach (ThemeModel t in Model)
+    {
+        <li>
+            @*<a href="/Home/TestInfo?themeId='@t.Id'&themeName='@t.Name'">@t.Name</a>*@
+            @Html.ActionLink(t.Name,"TestInfo","Home", t,null)
+        </li> 
+    }
+</ol>
