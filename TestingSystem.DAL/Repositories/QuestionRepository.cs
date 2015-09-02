@@ -22,10 +22,16 @@ namespace TestingSystem.DAL.Repositories
             return context.Set<Theme>().Find(themeId).Questions.First();
         }
 
+        public Question GetQuestionById(int questionId)
+        {
+            return context.Set<Question>().Find(questionId);
+        }
+
         public int GetQuestionCountByThemeId(int themeId)
         {
             return context.Set<Theme>().Find(themeId).Questions.Count;
         }
+
 
 
     }

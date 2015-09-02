@@ -23,9 +23,9 @@ namespace TestingSystem.BLL
             return _themeRepository.GetThemesList().Select(CreateThemeModel).ToList();
         }
 
-        public QuestionModel GetNextQuestionModel(QuestionModel questionModel)
+        public QuestionModel GetNextQuestionModel(int questionId)
         {
-            Question question = _questionRepository.GetNextQuestionById(questionModel.Id);
+            Question question = _questionRepository.GetNextQuestionById(questionId);
 
             return CreateQuestionModel(question);
         }
@@ -46,6 +46,12 @@ namespace TestingSystem.BLL
         {
             Theme theme = _themeRepository.GetThemeById(themeId);
             return CreateThemeModel(theme);
+        }
+
+        public QuestionModel GetQuestionModelById(int questionId)
+        {
+            Question question = _questionRepository.GetQuestionById(questionId);
+            return CreateQuestionModel(question);
         }
 
         #region Private methods
