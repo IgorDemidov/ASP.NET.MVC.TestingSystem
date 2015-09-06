@@ -4,10 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestingSystem.DAL.AbstractRepositories;
 
 namespace TestingSystem.DAL
 {
-    public class Repository<TEntity> : IDisposable
+    public abstract class CommonRepository<TEntity> : ICommonRepository<TEntity>
         where TEntity : class
     {
         protected readonly DbContext context = new TestingSytemEntities();

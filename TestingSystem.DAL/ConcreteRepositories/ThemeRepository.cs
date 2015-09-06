@@ -4,10 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestingSystem.DAL.Abstract;
 
 namespace TestingSystem.DAL.Repositories
 {
-    public class ThemeRepository : Repository<Theme>
+    public class ThemeCommonRepository : CommonRepository<Theme>, IThemeRepository
     {
         public List<Theme> GetThemesList()
         {
@@ -18,6 +19,5 @@ namespace TestingSystem.DAL.Repositories
         {
             return context.Set<Theme>().Find(id);
         }
-
     }
 }

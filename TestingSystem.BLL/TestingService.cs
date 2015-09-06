@@ -8,49 +8,55 @@ using System.Threading.Tasks;
 using TestingSystem.DAL;
 using TestingSystem.DAL.Repositories;
 using TestingSystem.BLL.Models;
+using TestingSystem.DAL.Abstract;
 
 
 namespace TestingSystem.BLL
 {
     public class TestingService
     {
-        private readonly ThemeRepository _themeRepository = new ThemeRepository();
-        private readonly  QuestionRepository _questionRepository = new QuestionRepository();
-        private readonly AnswerRepository _answerRepository = new AnswerRepository();
+        private readonly IThemeRepository themeRepository;
+        private readonly  QuestionCommonRepository _questionCommonRepository = new QuestionCommonRepository();
+        private readonly AnswerCommonRepository _answerCommonRepository = new AnswerCommonRepository();
+
+        public TestingService(IThemeRepository themeRepository)
+        {
+            this.themeRepository = themeRepository;
+        }
 
         public List<ThemeModel> GetThemeModelList()
         {
-            return _themeRepository.GetThemesList().Select(CreateThemeModel).ToList();
+            return _themeBaseRepository.GetThemesList().Select(CreateThemeModel).ToList();
         }
 
         public QuestionModel GetNextQuestionModel(int questionId)
         {
-            Question question = _questionRepository.GetNextQuestionById(questionId);
+            Question question = _questionCommonRepository.GetNextQuestionById(questionId);
 
             return CreateQuestionModel(question);
         }
 
         public QuestionModel GetFirstQuestionModel(ThemeModel themeModel)
         {
-            Question question = _questionRepository.GetFirstQuestionByThemeId(themeModel.Id);
+            Question question = _questionCommonRepository.GetFirstQuestionByThemeId(themeModel.Id);
 
             return CreateQuestionModel(question);
         }
 
         public int GetQuestionCount(ThemeModel themeModel)
         {
-           return _questionRepository.GetQuestionCountByThemeId(themeModel.Id);
+           return _questionCommonRepository.GetQuestionCountByThemeId(themeModel.Id);
         }
 
         public ThemeModel GeThemeModelById(int themeId)
         {
-            Theme theme = _themeRepository.GetThemeById(themeId);
+            Theme theme = _themeBaseRepository.GetThemeById(themeId);
             return CreateThemeModel(theme);
         }
 
         public QuestionModel GetQuestionModelById(int questionId)
         {
-            Question question = _questionRepository.GetQuestionById(questionId);
+            Question question = _questionCommonRepository.GetQuestionById(questionId);
             return CreateQuestionModel(question);
         }
 
@@ -76,9 +82,9 @@ namespace TestingSystem.BLL
             QuestionModel model = new QuestionModel
             {
                 Id = question.QuestionID,
-                ThemeName = _themeRepository.GetThemeById(question.ThemeID).Name,
+                ThemeName = _themeBaseRepository.GetThemeById(question.ThemeID).Name,
                 Text = question.Text,
-                AnswerModels = _answerRepository.GetAnswerList(question.QuestionID).Select(CreateAnswerModel).ToList()
+                AnswerModels = _answerCommonRepository.GetAnswerList(question.QuestionID).Select(CreateAnswerModel).ToList()
             };
             return model;
         }

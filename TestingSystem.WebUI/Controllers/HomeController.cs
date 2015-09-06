@@ -13,7 +13,6 @@ namespace TestingSystem.WebUI.Controllers
     {
         private TestingService service = new TestingService();
         
-
         public ActionResult Index()
         {
             return View();
@@ -44,8 +43,8 @@ namespace TestingSystem.WebUI.Controllers
         [HttpGet]
         public ActionResult Test(ThemeModel themeModel)
         {
-            QuestionModel questionModelModel = service.GetFirstQuestionModel(themeModel);
-            return View(questionModelModel);
+            QuestionModel questionModel = service.GetFirstQuestionModel(themeModel);
+            return View(questionModel);
         }
 
         [HttpPost]
