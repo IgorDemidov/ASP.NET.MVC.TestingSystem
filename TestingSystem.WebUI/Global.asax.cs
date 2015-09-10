@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TestingSystem.WebUI.Infrasructure;
 
 namespace TestingSystem.WebUI
 {
@@ -22,6 +23,8 @@ namespace TestingSystem.WebUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             AuthConfig.RegisterAuth();
+
+            DependencyResolver.SetResolver(new NinjectDependencyResolver());
         }
     }
 }

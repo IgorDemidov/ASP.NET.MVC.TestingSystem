@@ -10,7 +10,7 @@ namespace TestingSystem.BLL.Models
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public string ThemeName { get; set; }
-        public List<AnswerModel> AnswerModels { get; set; }
+        public int ThemeId { get; set; }
+        public List<AnswerModel> Answers { get; set; }
     }
 }

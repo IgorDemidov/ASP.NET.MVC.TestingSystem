@@ -7,7 +7,7 @@ using TestingSystem.DAL.AbstractRepositories;
 
 namespace TestingSystem.DAL.Repositories
 {
-    public class QuestionCommonRepository: CommonRepository<Question>, IQuestionRepository
+    public class QuestionRepository: CommonRepository<Question>, IQuestionRepository
     {
         public Question GetNextQuestionById(int currQuestionId)
         {

@@ -7,7 +7,7 @@ using TestingSystem.DAL.AbstractRepositories;
 
 namespace TestingSystem.DAL.Repositories
 {
-    public class AnswerCommonRepository: CommonRepository<Answer>, IAnswerRepository
+    public class AnswerRepository: CommonRepository<Answer>, IAnswerRepository
     {
         public List<Answer> GetAnswerList(int questionId)
         {

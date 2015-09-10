@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestingSystem.DAL.AbstractRepositories
 {
-    interface IQuestionRepository: ICommonRepository<Question>
+    public interface IQuestionRepository: ICommonRepository<Question>
     {
         Question GetNextQuestionById(int currQuestionId);
 

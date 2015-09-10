@@ -8,7 +8,7 @@ using TestingSystem.DAL.Abstract;
 
 namespace TestingSystem.DAL.Repositories
 {
-    public class ThemeCommonRepository : CommonRepository<Theme>, IThemeRepository
+    public class ThemeRepository : CommonRepository<Theme>, IThemeRepository
     {
         public List<Theme> GetThemesList()
         {
